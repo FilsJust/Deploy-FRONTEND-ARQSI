@@ -9,16 +9,16 @@ import { CatalogoService } from '../Services/catalogo.service';
 })
 export class CatalogoComponent implements OnInit {
 
-  produtos: Produto[];
-  constructor(private catalogoService: CatalogoService) { }
+  /* produtos: Produto[]; */
+  constructor(/* private catalogoService: CatalogoService */) { }
 
   ngOnInit() {
-    this.getProdutos();
+    /* this.getProdutos(); */
   }
 
-  getProdutos(): void {
+  /* getProdutos(): void {
     this.catalogoService.getProducts()
       .subscribe(produto => this.produtos = produto);
-  }
+  } */
 
 }
