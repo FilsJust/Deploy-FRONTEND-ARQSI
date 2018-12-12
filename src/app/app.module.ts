@@ -61,6 +61,7 @@ import {
 import {AppComponent} from './app.component';
 import { EditItemchildComponent } from './edit-itemchild/edit-itemchild.component';
 import { EditItemFatherComponent } from './edit-item-father/edit-item-father.component';
+import { CreateProdutoComponent } from './create-product/create-product.component';
 
 /**
  * NgModule that includes all Material modules that are required to serve 
@@ -126,7 +127,10 @@ export class MaterialModule {}
     CreateItemchildComponent,
     ShowItemchildComponent,
     EditItemchildComponent,
-    EditItemFatherComponent
+    EditItemFatherComponent,
+    AddProductsComponent,
+    EditProductComponent,
+    CreateProdutoComponent
   ],
   imports: [
     BrowserModule,
