@@ -1,0 +1,15 @@
+<h2>Catalogo</h2>
+<button class="form-control" style="width: 20rem;" (click)="submit()">Criar produto</button>
+<li *ngFor='let produto of produtos'>
+  <div class="card" style="width: 40rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{produto.name}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{produto.productID}}</h6>
+      <p class="card-text">Categoria: {{produto.Category}}</p>
+      <a href="catalogo/editarProduto/{{produto.productID}}" class="card-link">Editar</a>
+      <a href="catalogo/addChildProduct/{{produto.productID}}" class="card-link">Add parts to product</a>
+      <a href="#" class="card-link">Delete parts from product</a>
+      <a href="#" class="card-link">Delete product</a>
+    </div>
+  </div>
+</li>

@@ -1,0 +1,81 @@
+<div *ngIf="!itemId">
+
+
+  <div *ngIf="produtosFilhos">
+    <span>
+      Nome: {{produtosFilhos.name}}
+    </span>
+    <br>
+    <span>
+      Categoria: {{produtosFilhos.category.name}}
+    </span>
+    <br>
+    <select name="Materials" (change)="getFinishingsFromDropDown($event.target.value)" class="select-width form-control">
+      <option value="-1">Escolhe o Material</option>
+      <option *ngFor='let material of produtosFilhos.materials' value="{{material.idMaterial}}">{{material.nameMaterial}}</option>
+    </select>
+
+    <select *ngIf="finishings" name="Finishings" class="form-control select-width" (change)="chooseFinishing($event.target.value)">
+      <option value="-1">Escolhe o Acabamento</option>
+      <option *ngFor='let finishing of finishings' value="{{finishing.idFinishing}}">{{finishing.nameFinishing}}</option>
+    </select>
+
+    <br>
+
+    <div *ngIf="produtosFilhos.heightDimensionId.type==1">
+      <select name="height" class="form-control" (change)="finalHeight($event.target.value)">
+        <option value="-1">Escolhe a Altura</option>
+        <option *ngFor='let height of heigthDiscret' value="{{height.size}}">{{height.size}}</option>
+      </select>
+    </div>
+    <div *ngIf="produtosFilhos.heightDimensionId.type==2">
+      <div *ngIf="heightContinuous">
+        Height (min: {{heightContinuous.min}} max: {{heightContinuous.max}}):<input class="form-control" type="number"
+          min="{{heightContinuous.min}}" max="{{heightContinuous.max}}" step="1" value="{{heiCValue}}" (change)="checkHeightC($event.target.value, heightContinuous.max, heightContinuous.min)">
+      </div>
+    </div>
+
+    <br>
+
+    <div *ngIf="produtosFilhos.widthDimensionId.type==1">
+      <select name="width" class="form-control" (change)="finalWidth($event.target.value)">
+        <option value="-1">Escolhe a Largura</option>
+        <option *ngFor='let width of widthDiscret' value="{{width.size}}">{{width.size}}</option>
+      </select>
+    </div>
+    <div *ngIf="produtosFilhos.widthDimensionId.type==2">
+      <div *ngIf="widthContinuous">
+        Width (min: {{widthContinuous.min}} max: {{widthContinuous.max}}):<input class="form-control" type="number" min="{{widthContinuous.min}}"
+          max="{{widthContinuous.max}}" step="1" value="{{widCValue}}" (change)="checkWidthC($event.target.value, widthContinuous.max, widthContinuous.min)">
+        <!---Min: {{widthContinuous.min}} Max: {{widthContinuous.max}}
+      <div class="slidecontainer" name="width">
+        <input type="range" min="{{widthContinuous.min}}" max="{{widthContinuous.max}}" value="{{widthContinuous.min}}"
+          class="slider" id="myRange">
+        <p>Value: <span id="demo"></span></p>
+        <app-slider [widthMin]="20"></app-slider>
+        
+      </div>-->
+
+      </div>
+    </div>
+
+    <br>
+
+    <div *ngIf="produtosFilhos.lengthDimensionId.type==1">
+      <select name="length" class="form-control" (change)="finalLength($event.target.value)">
+        <option value="-1">Escolhe a Profundidade</option>
+        <option *ngFor='let length of lengthDiscret' value="{{length.size}}">{{length.size}}</option>
+      </select>
+    </div>
+    <div *ngIf="produtosFilhos.lengthDimensionId.type==2" name="length">
+      <div *ngIf="lengthContinuous">
+        Length (min: {{lengthContinuous.min}} max: {{lengthContinuous.max}}):<input class="form-control" type="number"
+          min="{{lengthContinuous.min}}" max="{{lengthContinuous.max}}" step="1" value="{{lenCValue}}" (change)="checkLengthC($event.target.value, lengthContinuous.max, lengthContinuous.min)">
+      </div>
+    </div>
+    <br>
+    <div *ngIf="wrong" class="alert alert-danger" role="alert">Something went wrong</div>
+    <button class="form-control" (click)="submit()">Criar</button>
+  </div>
+</div>
+<nav><a *ngIf="itemId" routerLink="/encomenda/criarFilho/{{itemId}}">Adicionar Itens</a></nav>

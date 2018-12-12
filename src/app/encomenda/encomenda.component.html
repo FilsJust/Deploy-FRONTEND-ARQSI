@@ -1,0 +1,58 @@
+<h2>Itens Concretizados</h2>
+
+<mat-card *ngIf="itemsx">
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+        <mat-nested-tree-node *matTreeNodeDef="let node">
+            <li>
+                <div class="mat-tree-node">
+                        <a *ngIf="!node.fatherId" routerLink="criarFilho/{{node._id}}" class="card-link"> Nome: {{node.name}} ,
+                        Categoria: {{node.category}} , Material: {{node.material}} , Acabamento:
+                        {{node.finishing}} , Altura: {{node.height}} , Largura: {{node.width}} , Profundidade:
+                        {{node.length}}
+                        </a>
+                    <div *ngIf="node.fatherId">
+                        Nome: {{node.name}} ,
+                        Categoria: {{node.category}} , Material: {{node.material}} , Acabamento:
+                        {{node.finishing}} , Altura: {{node.height}} , Largura: {{node.width}} , Profundidade:
+                        {{node.length}}
+                    </div>
+                </div>
+            </li>
+        </mat-nested-tree-node>
+        <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChildren">
+            <li class="example-tree-container">
+                <div class="mat-tree-node">
+                    <button mat-icon-button matTreeNodeToggle [matTreeNodeToggleRecursive]="recursive"
+                        [attr.aria-label]="'toggle ' + node.filename">
+                        <mat-icon>
+                            {{treeControl.isExpanded(node) ? '<' : '>' }} </mat-icon> </button><a *ngIf="!node.fatherId" routerLink="criarFilho/{{node._id}}" class="card-link">Nome: {{node.name}} ,
+                                Categoria: {{node.category}} , Material: {{node.material}} , Acabamento:
+                                {{node.finishing}} , Altura: {{node.height}} , Largura: {{node.width}} , Profundidade:
+                                {{node.length}}</a>
+                            <div *ngIf="node.fatherId">
+                                Nome: {{node.name}} ,
+                                Categoria: {{node.category}} , Material: {{node.material}} , Acabamento:
+                                {{node.finishing}} , Altura: {{node.height}} , Largura: {{node.width}} , Profundidade:
+                                {{node.length}}
+                            </div>
+                </div>
+                <ul class="example-tree-nested-node">
+                    <div *ngIf="treeControl.isExpanded(node)">
+                        <ng-container matTreeNodeOutlet></ng-container>
+                    </div>
+                </ul>
+            </li>
+
+        </mat-nested-tree-node>
+    </mat-tree>
+</mat-card>
+<h2>Criar Armário Base</h2>
+<div *ngFor='let produto of produtos' class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{produto.name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{produto.productID}}</h6>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        <a routerLink="criarItem/{{produto.productID}}" class="card-link">Criar</a>
+    </div>
+</div>

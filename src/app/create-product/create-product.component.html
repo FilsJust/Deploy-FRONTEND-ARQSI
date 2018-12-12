@@ -1,0 +1,62 @@
+<select name="Materials" (change)="getMaterialsFromDropDown($event.target.value)" class="select-width form-control"  ng-model="data.multipleSelect" multiple>
+    <option value="-1">Escolhe o Material</option>
+    <option *ngFor='let material of materials' value="{{material.idMaterial}}">{{material.nameMaterial}}</option>
+</select>
+  <br>
+<select name="Finishings" class="form-control select-width" (change)="chooseFinishing($event.target.value)"  ng-model="data.multipleSelect" multiple>
+    <option value="-1">Escolhe o Acabamento</option>
+    <option *ngFor='let finishing of finishings' value="{{finishing.idFinishing}}">{{finishing.nameFinishing}}</option>
+ </select>
+
+ <select name="Height" class="form-control select-width" (change)="chooseHeight($event.target.value)">
+    <option value="-1">Escolhe a altura</option>
+    <option>1 - Continua</option>
+    <option>2 - Discreta</option>
+ </select>
+
+ <select name="Valores Continuos" class="form-control select-width" (change)="chooseHeight($event.target.value)">
+    <option value="-1">Escolhe os limites Continuos</option>
+    <option>Min:</option>
+    <option>Max: </option>
+ </select>
+
+ <select name="Valores Discretos" class="form-control select-width" (change)="chooseHeight($event.target.value)">
+    <option value="-1">Escolhe os limites Discretos</option>
+    <option>Valor:</option>
+ </select>
+
+ <select name="Lenght" class="form-control select-width" (change)="chooseHeight($event.target.value)">
+    <option value="-1">Escolhe a largura</option>
+    <option>1 - Continua</option>
+    <option>2 - Discreta</option>
+ </select> 
+
+ <select name="Valores Continuos" class="form-control select-width" (change)="chooseHeight($event.target.value)">
+    <option value="-1">Escolhe os limites Continuos</option>
+    <option>Min:</option>
+    <option>Max: </option>
+ </select>
+
+ <select name="Valores Discretos" class="form-control select-width" (change)="chooseHeight($event.target.value)">
+    <option value="-1">Escolhe os limites Discretos</option>
+    <option>Valor:</option>
+ </select>
+
+ <select name="Depth" class="form-control select-width" (change)="chooseHeight($event.target.value)">
+    <option value="-1">Escolhe a profundidade</option>
+    <option>1 - Continua</option>
+    <option>2 - Discreta</option>
+ </select>
+
+ <select name="Valores Continuos" class="form-control select-width" (change)="chooseHeight($event.target.value)">
+    <option value="-1">Escolhe os limites Continuos</option>
+    <option>Min:</option>
+    <option>Max: </option>
+ </select>
+
+ <select name="Valores Discretos" class="form-control select-width" (change)="chooseHeight($event.target.value)">
+    <option value="-1">Escolhe os limites Discretos</option>
+    <option>Valor:</option>
+ </select>
+ <button class="form-control" (click)="submit()">Editar produto</button>
+

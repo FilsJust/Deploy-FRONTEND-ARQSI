@@ -1,0 +1,37 @@
+<h2>Items já adicionados</h2>
+<ul *ngIf="aggregationItems" class="aggregation">
+  <li *ngFor='let aggregation of aggregationItems'>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{aggregation.name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted"></h6>
+        <p class="card-text">Categoria: {{aggregation.category}}<br>
+                            Material: {{aggregation.material}}<br>
+                            Acabamento: {{aggregation.finishing}}<br>
+                            Altura: {{aggregation.height}}<br>
+                            Largura: {{aggregation.width}}<br>
+                            Profundidade: {{aggregation.length}}<br>
+          </p>
+        <a routerLink="/encomenda/editarFilho/{{idItemPai}}/{{aggregation._id}}" (click)="ngOnDestroy()" class="card-link">Editar</a>
+        <a routerLink="/encomenda/criarFilho/{{aggregation._id}}" (click)="ngOnDestroy()" class="card-link">Ver Item</a>
+        <a (click)="delete(aggregation._id)" class="card-link">Apagar</a>
+      </div>
+    </div>
+  </li>
+</ul>
+<h2 *ngIf="nomeProdutoPai">Escolhe o item que queres adicionar ao Item: {{nomeProdutoPai}}</h2>
+<ul class="produto">
+  <li *ngFor='let produto of produto'>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{produto.name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted"></h6>
+        <p class="card-text">Categoria: {{produto.category.name}}<br>
+          Obrigatório: {{produto.mandatory}}<br>     
+        </p>
+        <a routerLink="/encomenda/criarFilho/{{idItemPai}}/{{produto.productID}}" (click)="ngOnDestroy()" class="card-link">Adicionar</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+  </li>
+</ul>
