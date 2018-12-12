@@ -111,8 +111,8 @@ import { EditItemFatherComponent } from './edit-item-father/edit-item-father.com
     MatTooltipModule,
     MatNativeDateModule,
     MatTreeModule,
-  ],
-  declarations: [EditItemchildComponent, EditItemFatherComponent]
+  ]
+  //declarations: [EditItemchildComponent, EditItemFatherComponent]
 })
 export class MaterialModule {}
 
