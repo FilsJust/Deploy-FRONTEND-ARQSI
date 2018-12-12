@@ -11,18 +11,18 @@ import { Category } from '../Model/Category';
 })
 export class CreateProdutoComponent implements OnInit {
 
-  materials : Material[];
+  /* materials : Material[];
   finishings : Finishing[];
-  categories: Category[];
+  categories: Category[]; */
   constructor(private CreateProductService: CreateProductService) { }
 
   ngOnInit() {
-    this.getMaterials();
+    /* this.getMaterials();
     this.getFinishings();
-    this.getCategory();
+    this.getCategory(); */
   }
 
-  getMaterials(): void {
+  /* getMaterials(): void {
     this.CreateProductService.getMaterials()
       .subscribe(material => this.materials = material);
   }
@@ -35,5 +35,5 @@ export class CreateProdutoComponent implements OnInit {
   getCategory(): void {
     this.CreateProductService.getCategories()
       .subscribe(category => this.categories = category);
-  }
+  } */
 }
